@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<div class="container profile-container">
+    <h1>Your Profile</h1>
+    <img src="<%= user.profileImagePath || '/images/default-profile.png' %>" alt="Profile Picture" class="profile-picture">
+    <form action="/profile/upload" method="post" enctype="multipart/form-data">
+        <label for="profileImage">Upload Profile Picture:</label>
+        <input type="file" name="profileImage" accept="image/*">
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2><%= user.name %></h2>
+    <p><strong>Department:</strong> <%= user.department %></p>
+    <p><strong>Year:</strong> <%= user.year %></p>
+</div>
+
+<%- include('partials/footer') %>

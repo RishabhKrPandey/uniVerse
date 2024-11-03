@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <h1>Campus Events</h1>
+    <ul class="events-list">
+        <% events.forEach(event => { %>
+            <li>
+                <h2><%= event.title %></h2>
+                <p><%= event.description %></p>
+                <p><strong>Date:</strong> <%= event.date %></p>
+                <p><strong>Location:</strong> <%= event.location %></p>
+                <form action="/events/rsvp/<%= event._id %>" method="post">
+                    <button type="submit">RSVP</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+
+<%- include('partials/footer') %>

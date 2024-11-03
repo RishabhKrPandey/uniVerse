@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <h1>Messages</h1>
+
+    <div class="message-list">
+        <% messages.forEach(message => { %>
+            <div class="message">
+                <p><strong><%= message.senderName %>:</strong> <%= message.content %></p>
+            </div>
+        <% }) %>
+    </div>
+
+    <form action="/messages" method="post">
+        <textarea name="content" placeholder="Type a message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<%- include('partials/footer') %>

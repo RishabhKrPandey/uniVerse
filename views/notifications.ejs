@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <h1>Notifications</h1>
+    <ul class="notifications-list">
+        <% notifications.forEach(notification => { %>
+            <li>
+                <p><%= notification.message %></p>
+                <p><small><%= notification.date %></small></p>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+
+<%- include('partials/footer') %>

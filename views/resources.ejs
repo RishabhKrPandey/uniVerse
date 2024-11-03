@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <h1>Resource Sharing</h1>
+
+    <form action="/resources/upload" method="post" enctype="multipart/form-data">
+        <label for="resourceFile">Upload a Resource (PDF or Image):</label>
+        <input type="file" name="resourceFile" accept=".pdf, image/*">
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Available Resources</h2>
+    <ul class="resource-list">
+        <% resources.forEach(resource => { %>
+            <li>
+                <p><strong><%= resource.title %></strong></p>
+                <a href="/resources/download/<%= resource._id %>" target="_blank">Download</a>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+
+<%- include('partials/footer') %>
