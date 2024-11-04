@@ -14,7 +14,7 @@
         <% resources.forEach(resource => { %>
             <li>
                 <p><strong><%= resource.title %></strong></p>
-                <a href="/resources/download/<%= resource._id %>" target="_blank">Download</a>
+                <a href="/resources/download/<%= resource._id %>" target="_blank"><%= resource.originalName %></a>
             </li>
         <% }) %>
     </ul>

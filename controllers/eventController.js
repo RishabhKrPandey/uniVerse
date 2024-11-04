@@ -1,4 +1,4 @@
-// controllers/eventController.js
+
 const Event = require('../models/Event');
 
 exports.listEvents = async (req, res) => {

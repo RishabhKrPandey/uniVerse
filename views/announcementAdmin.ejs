@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+<h1>Manage Announcements</h1>
+
+<form action="/admin/announcements" method="post">
+    <input type="text" name="title" placeholder="Announcement Title" required>
+    <textarea name="message" placeholder="Announcement Message" required></textarea>
+    <button type="submit">Add Announcement</button>
+</form>
+
+<ul>
+    <% announcements.forEach(announcement => { %>
+        <li>
+            <strong><%= announcement.title %></strong>: <%= announcement.message %>
+            <form action="/admin/announcements/<%= announcement._id %>/update" method="post">
+                <!-- Include fields to edit announcement details -->
+            </form>
+            <form action="/admin/announcements/<%= announcement._id %>/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>
+<%- include('partials/footer') %>

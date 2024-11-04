@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+<h1>Manage Events</h1>
+
+<form action="/admin/events" method="post">
+    <input type="text" name="title" placeholder="Event Title" required>
+    <textarea name="description" placeholder="Event Description" required></textarea>
+    <input type="date" name="date" required>
+    <button type="submit">Add Event</button>
+</form>
+
+<ul>
+    <% events.forEach(event => { %>
+        <li>
+            <strong><%= event.title %></strong> - <%= event.date.toDateString() %>
+            <form action="/admin/events/<%= event._id %>/update" method="post">
+                <!-- Include fields to edit event details -->
+            </form>
+            <form action="/admin/events/<%= event._id %>/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>
+<%- include('partials/footer') %>

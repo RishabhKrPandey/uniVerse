@@ -2,19 +2,30 @@
 
 <div class="container">
     <h1>Messages</h1>
+        <!-- Message Form with Receiver Selection -->
+        <form action="/messages/send" method="post">
+            <label for="receiverId">Send to:</label>
+            <select name="receiverId" required>
+                <% users.forEach(user => { %>
+                    <option value="<%= user._id %>"><%= user.name %></option>
+                <% }) %>
+            </select>
+            
+            <textarea name="content" placeholder="Type a message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
 
     <div class="message-list">
         <% messages.forEach(message => { %>
             <div class="message">
-                <p><strong><%= message.senderName %>:</strong> <%= message.content %></p>
+                <p>
+                    <strong><%= message.sender.name %>:</strong> <%= message.content %>
+                </p>
             </div>
         <% }) %>
     </div>
 
-    <form action="/messages" method="post">
-        <textarea name="content" placeholder="Type a message" required></textarea>
-        <button type="submit">Send</button>
-    </form>
+
 </div>
 
 <%- include('partials/footer') %>

@@ -1,4 +1,4 @@
-// controllers/resourceController.js
+
 const Resource = require('../models/Resource');
 const multer = require('multer');
 const upload = multer({ dest: 'public/uploads/resources/' });
